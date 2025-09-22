@@ -29,8 +29,8 @@ void bstree_add(BStree *T, int key, char value){
     else y->right = node;
 }
 
-struct bstnode *bstree_lookup(BStree *tree, int key){
-    struct bstnode *node = tree->root;
+struct bstnode *bstree_lookup(struct bstnode *node, int key){
+    //struct bstnode *node = tree->root;
     while(node!=NULL && key!=node->key){
         if(key<node->key) node = node->left;
         else node = node->right;
@@ -60,7 +60,7 @@ void bstree_transplant(BStree *T,struct bstnode *u,struct bstnode *v){
 }
 
 void bstree_delete(BStree *T, int key){
-    struct bstnode *z = bstree_lookup(T, key);
+    struct bstnode *z = bstree_lookup(T->root, key);
     if(z->left == NULL) bstree_transplant(T,z,z->right);
     else if(z->right == NULL) bstree_transplant(T,z,z->left);
     else{

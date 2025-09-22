@@ -19,7 +19,7 @@ typedef struct{
 BStree *bstree_create();
 void bstree_add(BStree *tree, int key, char value);
 void bstree_transplant(BStree *T,struct bstnode *u, struct bstnode *v);
-struct bstnode *bstree_lookup(BStree *tree, int key);
+struct bstnode *bstree_lookup(struct bstnode *tree, int key);
 void bstree_delete(BStree *tree, int key);
 struct bstnode *bstree_min(struct bstnode *node);
 struct bstnode *bstree_max(struct bstnode *node);

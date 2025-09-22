@@ -121,9 +121,9 @@ void right_rotate(RBtree *T,struct  rbnode *x){
     x->parent = y;
 }
 
-struct rbnode *rbtree_lookup(RBtree *T, int key){
-    struct rbnode* node = T->root;
-    while(node!=T->nil){
+struct rbnode *rbtree_lookup(struct rbnode *node,struct rbnode *nil, int key){
+    
+    while(node!=nil){
         if(key==node->key) return node;
         else if (key<node->key) node = node->left;
         else node = node->right;
@@ -159,7 +159,7 @@ void recursion_free(struct rbnode *tree,struct rbnode *nil){
 }
 
 struct rbnode *rbtree_delete(RBtree *T, int key){
-    struct rbnode *z = rbtree_lookup(T,key);
+    struct rbnode *z = rbtree_lookup(T->root,T->nil,key);
     struct rbnode *x,*y =z;
     char y_orig_color = y->color;
     if(z->left = T->nil){

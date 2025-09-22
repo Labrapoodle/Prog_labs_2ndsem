@@ -23,7 +23,7 @@ void rbtree_transplant(RBtree *T, struct rbnode *u,struct rbnode *v);
 void rb_delete_fixup(RBtree *T,struct rbnode *x);
 
 struct rbnode *rbtree_add(RBtree *root,int key, char value);
-struct rbnode *rbtree_lookup(RBtree *root, int key);
+struct rbnode *rbtree_lookup(struct rbnode *node,struct rbnode *nil, int key);
 struct rbnode *rbtree_delete(RBtree *T, int key);
 struct rbnode *rbtree_min(struct rbnode *node,struct rbnode *nil);
 struct rbnode *rbtree_max(struct rbnode *node,struct rbnode *nil);
